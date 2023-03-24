@@ -2,6 +2,7 @@
   "name": "readme-generator",
   "version": "1.0.0",
   "description": "a project to generate readme files using node",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^9.1.5"
+    "inquirer": "^8.0.0"
   }
 }
