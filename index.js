@@ -1,7 +1,6 @@
 import inquirer from 'inquirer';
 import fs from 'fs';
 
-
 // Title Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 inquirer
   .prompt([
@@ -67,33 +66,31 @@ inquirer
                             </head>
                             <title>${title}</title>
                             <body>
-                                <div>
-                                    <nav>
-                                        <ul>
-                                            <li>[Description](#description)</li>
-                                            <li>[Installation](#installation</li>
-                                            <li>[Usage](#usage)</li>
-                                            <li>[Contributing](#contributing)</li>
-                                            <li>[Tests](#tests)</li>
-                                            <li>[Questions](#questions)</li>
-                                        </ul>
-                                    </nav>
-                                    <h1># ${title}</h1>
-                                    <h3## Description</h3>
+                                <h2 class="title">Copy and past the below generated text into your README file. Your README file will be correctly formatted in markdown!</h2>
+                                <div class="main">
+                                    <h3># ${title}</h3>
+                                    <ul>
+                                        <li>[Description](#description)&lt;br&gt;</li>
+                                        <li>[Installation](#installation)&lt;br&gt;</li>
+                                        <li>[Usage](#usage)&lt;br&gt;</li>
+                                        <li>[Contributing](#contributing)&lt;br&gt;</li>
+                                        <li>[Tests](#tests)&lt;br&gt;</li>
+                                        <li>[Questions](#questions)&lt;br&gt;&lt;br&gt;</li>
+                                    </ul>
+                                    ![License](https://img.shields.io/badge/License-${license}-blue.svg)&lt;br&gt;&lt;br&gt;
+                                    <h3>## Description</h3>
                                     <p>${description}</p>
                                     <h3>## Installation</h3>
                                     <p>${installation}</p>
                                     <h3>## Usage</h3>
                                     <p>${usage}</p>
-                                    <h3>## License</h3>
-                                    <p>${license}</p>
                                     <h3>## Contributing</h3>
                                     <p>${contributing}</p>
                                     <h3>## Tests</h3>
                                     <p>${tests}</p>
                                     <h3>## Questions</h3>
                                     <p>${questions}</p>
-                                </div>
+                                <div>
                             </body>
                         </html>`;
 
