@@ -34,21 +34,32 @@ inquirer
         message: 'What license does your project use?',
         name: 'license',
         choices: [
-            { name: 'None', value: 'none' },
-            { name: 'Apache License 2.0', value: 'apache-license-2.0' },
-            { name: 'GNU General Public License v3.0', value: 'gnu-general-public-license-v3.0' },
-            { name: 'MIT License', value: 'mit-license' },
-            { name: 'BSD 2-Clause Simplified License', value: 'bsd-2-clause-simplified-license' },
-            { name: 'BSD 3-Clause New or Revised License', value: 'bsd-3-clause-new-or-revised-license' },
-            { name: 'Boost Software License 1.0', value: 'boost-software-license-1.0' },
-            { name: 'Creative Commons Zero v1.0 Universal', value: 'creative-commons-zero-v1.0-universal' },
-            { name: 'Eclipse Public License 2.0', value: 'eclipse-public-license-2.0' },
-            { name: 'GNU Affero General Public License v3.0', value: 'gnu-affero-general-public-license-v3.0' },
-            { name: 'GNU General Public License v2.0', value: 'gnu-general-public-license-v2.0' },
-            { name: 'GNU Lesser General Public License v2.1', value: 'gnu-lesser-general-public-license-v2.1' },
-            { name: 'Mozilla Public License 2.0', value: 'mozilla-public-license-2.0' },
-            { name: 'The Unlicense', value: 'the-unlicense' },
+            'None',
+            'Apache License 2.0',
+            'GNU General Public License v3.0',
+            'MIT License',
+            'BSD 2-Clause Simplified License',
+            'BSD 3-Clause New or Revised License',
+            'Boost Software License 1.0',
+            'Creative Commons Zero v1.0 Universal',
+            'Eclipse Public License 2.0',
+            'GNU Affero General Public License v3.0',
+            'GNU General Public License v2.0',
+            'GNU Lesser General Public License v2.1',
+            'Mozilla Public License 2.0',
+            'The Unlicense',
         ],
+        filter: function(input) {
+            // Convert the license name to a lowercase string with no spaces
+            return input.toLowerCase().replace(/ /g, '');
+          },
+        // output is modified to lowercase and remove spaces
+    },
+    {
+        // Features
+        type: 'input',
+        message: 'List key features and functionalities of the project?',
+        name: 'features',
     },
     {
         // Contributing
@@ -82,56 +93,56 @@ inquirer
         type: 'input',
         message: 'Please enter your Github username.',
         name: 'username',
+    },
+    {
+        // Credits
+        type: 'input',
+        message: 'List any people or recources that contributed to the projects?',
+        name: 'credits',
     }
   ])
   .then((answers) => {
-    const { title, description, installation, usage, license, contributing, tests, email, username } = answers;
-    const licenseChoices = answers.license.value;
-    console.log(licenseChoices);
-    const answersHtml = `<!DOCTYPE html>
-                            <head>
-                                <meta charset="UTF-8">
-                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                <link rel="stylesheet" href="assets/css/style.css">
-                                <title>Document</title>
-                            </head>
-                            <title>${title}</title>
-                            <body>
-                                <h2 class="title">Copy and past the below generated text into your README file. Your README file will be correctly formatted in markdown!</h2>
-                                <div class="main">
-                                    <h3># ${title}</h3>
-                                    <ul>
-                                        <li>[Description](#description)&lt;br&gt;</li>
-                                        <li>[Installation](#installation)&lt;br&gt;</li>
-                                        <li>[Usage](#usage)&lt;br&gt;</li>
-                                        <li>[License](#license)&lt;br&gt;</li>
-                                        <li>[Contributing](#how-to-contribute)&lt;br&gt;</li>
-                                        <li>[Tests](#tests)&lt;br&gt;</li>
-                                        <li>[Questions](#questions)&lt;br&gt;&lt;br&gt;</li>
-                                    </ul>
-                                    ![License](https://img.shields.io/badge/License-${license.value}-blue.svg)&lt;br&gt;&lt;br&gt;
-                                    <h3>## Description</h3>
-                                    <p>${description}</p>
-                                    <h3>## Installation</h3>
-                                    <p>${installation}</p>
-                                    <h3>## Usage</h3>
-                                    <p>${usage}</p>
-                                    <h3>## License</h3>
-                                    <p>This application is coverred under the ${license.name} license.</p>
-                                    <h3>## How to Contribute</h3>
-                                    <p>${contributing}</p>
-                                    <h3>## Tests</h3>
-                                    <p>${tests}</p>
-                                    <h3>## Questions</h3>
-                                    <p>Feel free to contact me with any questons about this applications.</p>
-                                    <p>Find my Github [here](https://github.com/${username})</p>
-                                    <p>Email me: ${email}</p>
-                                <div>
-                            </body>
-                        </html>`;
+    const { title, description, installation, usage, license, features, contributing, tests, email, username, credits } = answers;
+    console.log(license);
+    const answersMd = `
+# ${title}
+[Description](#description)  
+[Installation](#installation)  
+[Usage](#usage)  
+[Features](#features)  
+[Contributing](#how-to-contribute)  
+[Tests](#tests)  
+[Questions](#questions)  
+[Credits](#credits)
 
-    fs.writeFile('index.html', answersHtml, (err) => {
+![License](https://img.shields.io/badge/License-${license}-blue.svg)
+
+## Description
+${description}
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+## Features
+${features}
+
+## How to Contribute
+${contributing}
+
+## Tests
+${tests}
+
+## Questions
+Feel free to contact me with any questions about this application.
+* Find my Github [here](https://github.com/${username}).
+* Email me: [${email}](mailto:${email})
+
+## Credits
+* ${credits}`;
+    fs.writeFile('testreadme.md', answersMd, (err) => {
       err ? console.error(err) : console.log('Success!, open the index.html file in your browser to view');
    });
   })

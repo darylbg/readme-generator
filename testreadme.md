@@ -1,34 +1,38 @@
-# asdf
-[Description](#description)<br>
-[Installation](#installation)<br>
-[Usage](#usage)<br>
-[License](#license)<br>
-[Contributing](#how-to-contribute)<br>
-[Tests](#tests)<br>
-[Questions](#questions)<br><br>
-![License](https://img.shields.io/badge/License-undefined-blue.svg)<br><br>
+
+# 
+[Description](#description)  
+[Installation](#installation)  
+[Usage](#usage)  
+[Features](#features)  
+[Contributing](#how-to-contribute)  
+[Tests](#tests)  
+[Questions](#questions)  
+[Credits](#credits)
+
+![License](https://img.shields.io/badge/License-gnugeneralpubliclicensev3.0-blue.svg)
+
 ## Description
-asdf
+
 
 ## Installation
-asdf
+
 
 ## Usage
-asdf
 
-## License
-This application is coverred under the undefined license.
+
+## Features
+
 
 ## How to Contribute
-asdf
+
 
 ## Tests
-adsf
+
 
 ## Questions
-Feel free to contact me with any questons about this applications.
+Feel free to contact me with any questions about this application.
+* Find my Github [here](https://github.com/).
+* Email me: [darylxcuf@gmail.com](mailto:darylxcuf@gmail.com)
 
-Find my Github [here](https://github.com/darylbg)
-
-Email me: darylasdf@gmail.com
-
+## Credits
+* 
