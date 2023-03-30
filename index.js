@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import fs from 'fs';
 
-// Title Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+// command line prompts for user entry
 inquirer
   .prompt([
     {
@@ -53,7 +53,6 @@ inquirer
             // Convert the license name to a lowercase string with no spaces
             return input.toLowerCase().replace(/ /g, '');
           },
-        // output is modified to lowercase and remove spaces
     },
     {
         // Features
@@ -78,15 +77,15 @@ inquirer
         type: 'input',
         name: 'email',
         message: 'What is your email address?',
-        // validate: function(input) {
-        //     // validates the email address
-        //     const emailRegex = /\S+@\S+\.\S+/;
-        //     if (emailRegex.test(input)) {
-        //         return true;
-        //     } else {
-        //         return 'Please enter a valid email address';
-        //     }
-        // }
+        validate: function(input) {
+            // validates the email address
+            const emailRegex = /\S+@\S+\.\S+/;
+            if (emailRegex.test(input)) {
+                return true;
+            } else {
+                return 'Please enter a valid email address';
+            }
+        }
     },
     {
         // Github username
@@ -102,8 +101,9 @@ inquirer
     }
   ])
   .then((answers) => {
+    // deconstructs prompts
     const { title, description, installation, usage, license, features, contributing, tests, email, username, credits } = answers;
-    console.log(license);
+    // writes output in a variable
     const answersMd = `
 # ${title}
 [Description](#description)  
@@ -142,8 +142,9 @@ Feel free to contact me with any questions about this application.
 
 ## Credits
 * ${credits}`;
+    // uses the built in file package to create and write to a .md file
     fs.writeFile('testreadme.md', answersMd, (err) => {
-      err ? console.error(err) : console.log('Success!, open the index.html file in your browser to view');
+      err ? console.error(err) : console.log('Success!, open the testreadme.md file to view');
    });
   })
   .catch((error) => console.log(error));
