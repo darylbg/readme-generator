@@ -8,7 +8,7 @@
 [Questions](#questions)  
 [Credits](#credits)
 
-![License](https://img.shields.io/badge/License-mitlicense-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Description
 This application generates a readme file in markdown based on a users input to a series of command line prompts.
@@ -28,10 +28,13 @@ To contribute to this project, a developer could clone the repository to thier l
 ## Tests
 Tests include email validation
 
+## Deployment
+* Source code [here](https://github.com/darylbg/readme-generator)
+* Link to walk through video on how to run and use the project [here](https://www.youtube.com/watch?v=mNJpTNFcpD4). - Advised to make sure you are viewing video in 1080p.
+* Screenshot of what a generated README file may look like:
+![Screenshot](/images/screenshot.PNG)
+
 ## Questions
 Feel free to contact me with any questions about this application.
 * Find my Github [here](https://github.com/darylbg).
 * Email me: [darylxcuf@gmail.com](mailto:darylxcuf@gmail.com)
-
-## Credits
-* Daryl Blough
